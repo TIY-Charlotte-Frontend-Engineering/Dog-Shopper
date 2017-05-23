@@ -1,0 +1,13 @@
+<section>
+    <input type="text" ng-model="product_name">
+    
+    <a ui-sref="details({{  }})">{{ }}
+    <button ng-click='search()'>Search</button>
+    </a>
+                    <!--
+                    The ui-sref is creating a link to the details page 
+                    add something similar to <a ui-sref="details({ username: friend.username })">{{ friend.username }}</a> 
+
+                    route({ param: value })
+                 -->
+</section>
