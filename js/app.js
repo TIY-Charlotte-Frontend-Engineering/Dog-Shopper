@@ -1,5 +1,20 @@
 const app = angular.module('DogShopperApp', ['ui.router']);
 
+const controllers = [
+    require('./controllers/search'),
+    require('./controllers/review'),
+    require('./controllers/list'),
+    require('./controllers/popular'),
+    require('./controllers/detail'),
+    require('./controllers/cart'),
+];
+
+for (let i = 0; i < controllers.length; i++) {
+    app.controller(controllers[i].name, controllers[i].func);
+}
+
+const services = require('./services/product');
+
 app.config(function ($stateProvider) {
 
     $stateProvider.state({
