@@ -1,10 +1,13 @@
 
 module.exports = {
     name: 'SearchboxController',
-    func: function ($scope, DogProductService) {
-        $scope.product_name = '';
-        $scope.add() = function () {
-            DogProductService.addProduct($scope.product_name);
-        };
+    func: function ($scope, ProductService) { // may need $stateParams, not sure yet
+
     },
 }
+
+// app.controller('SearchboxController', function ($scope, ProductService) {
+
+
+
+// });
