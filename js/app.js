@@ -46,48 +46,42 @@ app.component('shoppingCart', {
 });
 
 
-app.controller('SearchboxController', function ($scope, ProductService) {
+// app.controller('SearchboxController', function ($scope, ProductService) {
 
 
 
-});
+// }); 
 
-app.controller('ProductListController', function ($scope, ProductService) {
-
-
-
-});
-
-app.controller('PopularProductsController', function ($scope, ProductService) {
+// app.controller('ProductListController', function ($scope, ProductService) {
 
 
 
-});
+// });
 
-app.controller('ProductDetailController', function ($scope, ProductService) {
-
-
-
-});
-
-app.controller('ShoppingCartController', function ($scope, ProductService) {
+// app.controller('PopularProductsController', function ($scope, ProductService) {
 
 
 
-});
+// });
 
-app.controller('ReviewController', function ($scope, ProductService) {
+// app.controller('ProductDetailController', function ($scope, ProductService) {
 
 
 
-});
+// });
+
+// app.controller('ShoppingCartController', function ($scope, ProductService) {
+
+
+
+// });
+
+// app.controller('ReviewController', function ($scope, ProductService) {
+
+
+
+// });
 
 // app.factory('ProductService')
-
-app.config(function ($stateProvider) {
-
-
-
-});
 
 
