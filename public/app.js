@@ -61,47 +61,6 @@ app.component('shoppingCart', {
     controller: 'ShoppingCartController',
 });
 
-
-// app.controller('SearchboxController', function ($scope, ProductService) {
-
-
-
-// }); 
-
-// app.controller('ProductListController', function ($scope, ProductService) {
-
-
-
-// });
-
-// app.controller('PopularProductsController', function ($scope, ProductService) {
-
-
-
-// });
-
-// app.controller('ProductDetailController', function ($scope, ProductService) {
-
-
-
-// });
-
-// app.controller('ShoppingCartController', function ($scope, ProductService) {
-
-
-
-// });
-
-// app.controller('ReviewController', function ($scope, ProductService) {
-
-
-
-// });
-
-// app.factory('ProductService')
-
-
-
 },{"./controllers/cart":2,"./controllers/detail":3,"./controllers/list":4,"./controllers/popular":5,"./controllers/review":6,"./controllers/search":7,"./services/product":8}],2:[function(require,module,exports){
 
 module.exports = {
@@ -180,7 +139,6 @@ module.exports = {
 
 // });
 },{}],7:[function(require,module,exports){
-
 module.exports = {
     name: 'SearchboxController',
     func: function ($http) { // may need $stateParams, not sure yet
@@ -197,13 +155,9 @@ module.exports = {
     },
 }
 
-// app.controller('SearchboxController', function ($scope, ProductService) {
 
-
-
-// });
 },{}],8:[function(require,module,exports){
-<<<<<<< HEAD
+
 module.exports = {
 
     name:'ProductService', 
@@ -225,28 +179,7 @@ module.exports = {
         };
     }, 
 }
-=======
-module.export = {
-    name: 'ProductService',
-    func: function ($http) {
-
-        const searchResults = [];
-
-        return {
-            addSearchResults(searchString) {
-
-                $http.get('https://tiy-28202.herokuapp.com/shop/search?q=' + searchString).then(function (response) {
-                    // populate 'searchResults' using the results from the get request
-                });
-            },
-
-            getSearchResults() {
-                return searchResults;
-            }
-        };
-    },
-};
 
 
->>>>>>> 692589a7bd985358eaa2307e5c5bc4a2c190d094
+
 },{}]},{},[1]);
