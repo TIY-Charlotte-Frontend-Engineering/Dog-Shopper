@@ -1,5 +1,7 @@
-module.export = {
-    name: 'ProductService',
+
+module.exports = {
+
+    name:'ProductService', 
     func: function ($http) {
 
         const searchResults = [];
@@ -8,7 +10,7 @@ module.export = {
             addSearchResults(searchString) {
 
                 $http.get('https://tiy-28202.herokuapp.com/shop/search?q=' + searchString).then(function (response) {
-                    console.log('hello');
+                    console.log(response);
                 });
             },
 
@@ -16,6 +18,7 @@ module.export = {
                 return searchResults;
             }
         };
-    },
-};
+    }, 
+}
+
 

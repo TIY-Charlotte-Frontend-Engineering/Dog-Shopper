@@ -16,6 +16,8 @@ for (let i = 0; i < controllers.length; i++) {
 
 const services = require('./services/product');
 
+app.factory(services.name, services.func);
+
 app.config(function ($stateProvider) {
 
     $stateProvider.state({
@@ -157,9 +159,10 @@ module.exports = {
 },{}],7:[function(require,module,exports){
 module.exports = {
     name: 'SearchboxController',
-    func: function ($http) { // may need $stateParams, not sure yet
+    func: function ($scope, ProductService) { // may need $stateParams, not sure yet
 
         $scope.search_string = '';
+
         $scope.search = function(search_string){
             console.log('searching');
             ProductService.addSearchResults($scope.search_string);
@@ -173,8 +176,10 @@ module.exports = {
 
 
 },{}],8:[function(require,module,exports){
-module.export = {
-    name: 'ProductService',
+
+module.exports = {
+
+    name:'ProductService', 
     func: function ($http) {
 
         const searchResults = [];
@@ -183,7 +188,7 @@ module.export = {
             addSearchResults(searchString) {
 
                 $http.get('https://tiy-28202.herokuapp.com/shop/search?q=' + searchString).then(function (response) {
-                    console.log('hello');
+                    console.log(response);
                 });
             },
 
@@ -191,8 +196,9 @@ module.export = {
                 return searchResults;
             }
         };
-    },
-};
+    }, 
+}
+
 
 
 },{}]},{},[1]);
