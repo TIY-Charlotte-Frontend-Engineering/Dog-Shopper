@@ -70,9 +70,9 @@ app.component('searchBox', {
     }
 });
 
-app.component('item', {
-    templateUrl: 'templates/item.html',
-    controller: 'ProductDetailController',
+app.component('popItems', {
+    templateUrl: 'templates/pop-items.html',
+    controller: 'PopularProductsController',
     bindings: {
         who: '<', 
     }

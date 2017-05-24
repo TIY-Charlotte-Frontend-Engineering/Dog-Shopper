@@ -71,9 +71,9 @@ app.component('searchBox', {
     }
 });
 
-app.component('item', {
-    templateUrl: 'templates/item.html',
-    controller: 'ProductDetailController',
+app.component('popItems', {
+    templateUrl: 'templates/pop-items.html',
+    controller: 'PopularProductsController',
     bindings: {
         who: '<', 
     }
@@ -97,22 +97,7 @@ module.exports = {
 },{}],3:[function(require,module,exports){
 module.exports = {
     name: 'ProductDetailController',
-    func: function ($scope, ProductService) { // may need $stateParams, not sure yet
-        // $scope.searchResults = ProductService.getSearchResults()
-
-        ProductService.getAllItems().then(function (results) {
-            let popItems = [];
-
-            console.log('hello');
-
-            for (let i = 0; i < results.length; i++) {
-                if (results[i].popular === true) {
-                    popItems.push(results[i]);
-
-                };
-            };
-            $scope.popItems = popItems;
-        })
+    func: function ($scope, ProductService) { 
     },
 }
 },{}],4:[function(require,module,exports){
@@ -130,22 +115,24 @@ module.exports = {
 // });
 
 },{}],5:[function(require,module,exports){
-
 module.exports = {
     name: 'PopularProductsController',
     func: function ($scope, ProductService) { // may need $stateParams, not sure yet
+        // $scope.searchResults = ProductService.getSearchResults()
 
+        ProductService.getAllItems().then(function (results) {
+            let popItems = [];
+
+            for (let i = 0; i < results.length; i++) {
+                if (results[i].popular === true) {
+                    popItems.push(results[i]);
+
+                };
+            };
+            $scope.popItems = popItems;
+        })
     },
 }
-
-
-// app.controller('PopularProductsController', function ($scope, ProductService) {
-
-
-
-// });
-
-
 },{}],6:[function(require,module,exports){
 
 module.exports = {
