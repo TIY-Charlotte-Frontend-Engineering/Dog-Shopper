@@ -96,20 +96,20 @@ module.exports = {
 // });
 },{}],3:[function(require,module,exports){
 module.exports = {
-    name: 'ProductDetailController',
-    func: function ($scope, ProductService) { // may need $stateParams, not sure yet
-
-    },
+   name: 'ProductDetailController',
+   func: function ($scope, ProductService) { // may need $stateParams, not sure yet
+       // $scope.searchResults = ProductService.getSearchResults()
+       popItems = [];
+       ProductService.getAllItems().then(function (results) {
+           for (let i = 0; i < results.length; i++) {
+               if (results[i].popular === true) {
+                   popItems.push(results[i]);
+               };
+           };
+           $scope.popItems = results;
+       })
+   },
 }
-
-
-// app.controller('ProductDetailController', function ($scope, ProductService) {
-
-
-
-// });
-
-
 },{}],4:[function(require,module,exports){
 module.exports = {
     name: 'ProductListController',
@@ -167,6 +167,7 @@ module.exports = {
             console.log('searching');
             ProductService.addSearchResults($scope.search_string);
             $scope.search_string = '';
+            ProductService.getAllItems();
         }
 
         $scope.results = ProductService.getSearchResults();
@@ -176,15 +177,22 @@ module.exports = {
 
 
 },{}],8:[function(require,module,exports){
-
 module.exports = {
-
-    name:'ProductService', 
+    name: 'ProductService',
     func: function ($http) {
 
         const searchResults = [];
 
+
         return {
+            getAllItems(){
+
+                return $http.get('https://tiy-28202.herokuapp.com/shop/items').then(function(response){
+                    return response.data;
+                })
+
+            },
+
             addSearchResults(searchString) {
 
                 $http.get('https://tiy-28202.herokuapp.com/shop/search?q=' + searchString).then(function (response) {
@@ -194,10 +202,11 @@ module.exports = {
 
             getSearchResults() {
                 return searchResults;
-            }
+            },
         };
-    }, 
-}
+    },
+};
+
 
 
 

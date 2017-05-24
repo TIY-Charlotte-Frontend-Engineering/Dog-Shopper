@@ -8,6 +8,7 @@ module.exports = {
             console.log('searching');
             ProductService.addSearchResults($scope.search_string);
             $scope.search_string = '';
+            ProductService.getAllItems();
         }
 
         $scope.results = ProductService.getSearchResults();
