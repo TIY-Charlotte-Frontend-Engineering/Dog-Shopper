@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 module.exports = {
 
     name:'ProductService', 
@@ -20,7 +20,7 @@ module.exports = {
         };
     }, 
 }
-=======
+
 module.export = {
     name: 'ProductService',
     func: function ($http) {
@@ -42,4 +42,4 @@ module.export = {
     },
 };
 
->>>>>>> 692589a7bd985358eaa2307e5c5bc4a2c190d094
+
