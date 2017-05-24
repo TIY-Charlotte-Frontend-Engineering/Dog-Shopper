@@ -1,7 +1,6 @@
-
 module.exports = {
     name: 'SearchboxController',
-    func: function ($scope, ProductService) { // may need $stateParams, not sure yet
+    func: function ($http) { // may need $stateParams, not sure yet
 
         $scope.search_string = '';
         $scope.search = function(search_string){
@@ -15,8 +14,3 @@ module.exports = {
     },
 }
 
-// app.controller('SearchboxController', function ($scope, ProductService) {
-
-
-
-// });

@@ -183,7 +183,7 @@ module.exports = {
 
 module.exports = {
     name: 'SearchboxController',
-    func: function ($scope, ProductService) { // may need $stateParams, not sure yet
+    func: function ($http) { // may need $stateParams, not sure yet
 
         $scope.search_string = '';
         $scope.search = function(search_string){
@@ -203,21 +203,26 @@ module.exports = {
 
 // });
 },{}],8:[function(require,module,exports){
-app.factory('ProductService', function ($http) {
+module.export = {
+    name: 'ProductService',
+    func: function ($http) {
 
-    const searchResults = [];
+        const searchResults = [];
 
-    return {
-        addSearchResults(searchString) {
+        return {
+            addSearchResults(searchString) {
 
-            $http.get('https://tiy-28202.herokuapp.com/shop/search?q=' + searchString).then(function (response) {
-                // populate 'searchResults' using the results from the get request
-            });
-        }, 
+                $http.get('https://tiy-28202.herokuapp.com/shop/search?q=' + searchString).then(function (response) {
+                    // populate 'searchResults' using the results from the get request
+                });
+            },
 
-        getSearchResults() {
-            return searchResults; 
-        } 
-    }; 
-}); 
+            getSearchResults() {
+                return searchResults;
+            }
+        };
+    },
+};
+
+
 },{}]},{},[1]);
