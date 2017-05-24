@@ -157,9 +157,10 @@ module.exports = {
 },{}],7:[function(require,module,exports){
 module.exports = {
     name: 'SearchboxController',
-    func: function ($http) { // may need $stateParams, not sure yet
+    func: function ($scope) { // may need $stateParams, not sure yet
 
         $scope.search_string = '';
+
         $scope.search = function(search_string){
             console.log('searching');
             ProductService.addSearchResults($scope.search_string);
@@ -171,19 +172,12 @@ module.exports = {
     },
 }
 
-<<<<<<< HEAD
 
 },{}],8:[function(require,module,exports){
 
 module.exports = {
 
     name:'ProductService', 
-=======
-
-},{}],8:[function(require,module,exports){
-module.export = {
-    name: 'ProductService',
->>>>>>> 0fca334adb10e72d821cbab78b7f6841dcbd33e3
     func: function ($http) {
 
         const searchResults = [];
