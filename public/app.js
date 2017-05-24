@@ -16,6 +16,8 @@ for (let i = 0; i < controllers.length; i++) {
 
 const services = require('./services/product');
 
+app.factory(services.name, services.func);
+
 app.config(function ($stateProvider) {
 
     $stateProvider.state({
