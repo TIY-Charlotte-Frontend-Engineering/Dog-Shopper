@@ -157,7 +157,7 @@ module.exports = {
 },{}],7:[function(require,module,exports){
 module.exports = {
     name: 'SearchboxController',
-    func: function ($scope) { // may need $stateParams, not sure yet
+    func: function ($scope, ProductService) { // may need $stateParams, not sure yet
 
         $scope.search_string = '';
 
