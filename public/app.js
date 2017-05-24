@@ -61,46 +61,21 @@ app.component('shoppingCart', {
     controller: 'ShoppingCartController',
 });
 
+app.component('searchBox', {
+    templateUrl: 'templates/search.html',
+    controller: 'SearchboxController',
+    bindings: {
+        who: '<', 
+    }
+});
 
-// app.controller('SearchboxController', function ($scope, ProductService) {
-
-
-
-// }); 
-
-// app.controller('ProductListController', function ($scope, ProductService) {
-
-
-
-// });
-
-// app.controller('PopularProductsController', function ($scope, ProductService) {
-
-
-
-// });
-
-// app.controller('ProductDetailController', function ($scope, ProductService) {
-
-
-
-// });
-
-// app.controller('ShoppingCartController', function ($scope, ProductService) {
-
-
-
-// });
-
-// app.controller('ReviewController', function ($scope, ProductService) {
-
-
-
-// });
-
-// app.factory('ProductService')
-
-
+app.component('item', {
+    templateUrl: 'templates/item.html',
+    controller: 'ProductDetailController',
+    bindings: {
+        who: '<', 
+    }
+});
 
 },{"./controllers/cart":2,"./controllers/detail":3,"./controllers/list":4,"./controllers/popular":5,"./controllers/review":6,"./controllers/search":7,"./services/product":8}],2:[function(require,module,exports){
 
@@ -180,7 +155,6 @@ module.exports = {
 
 // });
 },{}],7:[function(require,module,exports){
-
 module.exports = {
     name: 'SearchboxController',
     func: function ($http) { // may need $stateParams, not sure yet
@@ -197,11 +171,7 @@ module.exports = {
     },
 }
 
-// app.controller('SearchboxController', function ($scope, ProductService) {
 
-
-
-// });
 },{}],8:[function(require,module,exports){
 module.export = {
     name: 'ProductService',
@@ -213,7 +183,7 @@ module.export = {
             addSearchResults(searchString) {
 
                 $http.get('https://tiy-28202.herokuapp.com/shop/search?q=' + searchString).then(function (response) {
-                    // populate 'searchResults' using the results from the get request
+                    console.log('hello');
                 });
             },
 
