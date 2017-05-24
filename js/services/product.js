@@ -1,17 +1,21 @@
-app.factory('ProductService', function ($http) {
+module.exports = {
 
-    const searchResults = [];
+    name:'ProductService', 
+    func: function ($http) {
 
-    return {
-        addSearchResults(searchString) {
+        const searchResults = [];
 
-            $http.get('https://tiy-28202.herokuapp.com/shop/search?q=' + searchString).then(function (response) {
-                // populate 'searchResults' using the results from the get request
-            });
-        }, 
+        return {
+            addSearchResults(searchString) {
 
-        getSearchResults() {
-            return searchResults; 
-        } 
-    }; 
-}); 
+                $http.get('https://tiy-28202.herokuapp.com/shop/search?q=' + searchString).then(function (response) {
+                    // populate 'searchResults' using the results from the get request
+                });
+            },
+
+            getSearchResults() {
+                return searchResults;
+            }
+        };
+    }, 
+}
