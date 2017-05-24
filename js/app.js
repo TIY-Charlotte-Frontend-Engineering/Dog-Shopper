@@ -59,3 +59,19 @@ app.component('shoppingCart', {
     templateUrl: 'templates/cart.html',
     controller: 'ShoppingCartController',
 });
+
+app.component('searchBox', {
+    templateUrl: 'templates/search.html',
+    controller: 'SearchboxController',
+    bindings: {
+        who: '<', 
+    }
+});
+
+app.component('item', {
+    templateUrl: 'templates/item.html',
+    controller: 'ProductDetailController',
+    bindings: {
+        who: '<', 
+    }
+});

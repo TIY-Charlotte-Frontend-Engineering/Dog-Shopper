@@ -61,6 +61,22 @@ app.component('shoppingCart', {
     controller: 'ShoppingCartController',
 });
 
+app.component('searchBox', {
+    templateUrl: 'templates/search.html',
+    controller: 'SearchboxController',
+    bindings: {
+        who: '<', 
+    }
+});
+
+app.component('item', {
+    templateUrl: 'templates/item.html',
+    controller: 'ProductDetailController',
+    bindings: {
+        who: '<', 
+    }
+});
+
 },{"./controllers/cart":2,"./controllers/detail":3,"./controllers/list":4,"./controllers/popular":5,"./controllers/review":6,"./controllers/search":7,"./services/product":8}],2:[function(require,module,exports){
 
 module.exports = {
@@ -155,12 +171,19 @@ module.exports = {
     },
 }
 
+<<<<<<< HEAD
 
 },{}],8:[function(require,module,exports){
 
 module.exports = {
 
     name:'ProductService', 
+=======
+
+},{}],8:[function(require,module,exports){
+module.export = {
+    name: 'ProductService',
+>>>>>>> 0fca334adb10e72d821cbab78b7f6841dcbd33e3
     func: function ($http) {
 
         const searchResults = [];
@@ -169,7 +192,7 @@ module.exports = {
             addSearchResults(searchString) {
 
                 $http.get('https://tiy-28202.herokuapp.com/shop/search?q=' + searchString).then(function (response) {
-                    // populate 'searchResults' using the results from the get request
+                    console.log('hello');
                 });
             },
 
