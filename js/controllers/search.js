@@ -1,12 +1,14 @@
 module.exports = {
     name: 'SearchboxController',
-    func: function ($http) { // may need $stateParams, not sure yet
+    func: function ($scope, ProductService) { // may need $stateParams, not sure yet
 
         $scope.search_string = '';
+
         $scope.search = function(search_string){
             console.log('searching');
             ProductService.addSearchResults($scope.search_string);
             $scope.search_string = '';
+            ProductService.getAllItems();
         }
 
         $scope.results = ProductService.getSearchResults();

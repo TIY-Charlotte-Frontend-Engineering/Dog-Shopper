@@ -16,6 +16,8 @@ for (let i = 0; i < controllers.length; i++) {
 
 const services = require('./services/product');
 
+app.factory(services.name, services.func);
+
 app.config(function ($stateProvider) {
 
     $stateProvider.state({
@@ -96,18 +98,23 @@ module.exports = {
 module.exports = {
     name: 'ProductDetailController',
     func: function ($scope, ProductService) { // may need $stateParams, not sure yet
+        // $scope.searchResults = ProductService.getSearchResults()
 
+        ProductService.getAllItems().then(function (results) {
+            let popItems = [];
+
+            console.log('hello');
+
+            for (let i = 0; i < results.length; i++) {
+                if (results[i].popular === true) {
+                    popItems.push(results[i]);
+
+                };
+            };
+            $scope.popItems = popItems;
+        })
     },
 }
-
-
-// app.controller('ProductDetailController', function ($scope, ProductService) {
-
-
-
-// });
-
-
 },{}],4:[function(require,module,exports){
 module.exports = {
     name: 'ProductListController',
@@ -157,13 +164,15 @@ module.exports = {
 },{}],7:[function(require,module,exports){
 module.exports = {
     name: 'SearchboxController',
-    func: function ($http) { // may need $stateParams, not sure yet
+    func: function ($scope, ProductService) { // may need $stateParams, not sure yet
 
         $scope.search_string = '';
+
         $scope.search = function(search_string){
             console.log('searching');
             ProductService.addSearchResults($scope.search_string);
             $scope.search_string = '';
+            ProductService.getAllItems();
         }
 
         $scope.results = ProductService.getSearchResults();
@@ -173,26 +182,37 @@ module.exports = {
 
 
 },{}],8:[function(require,module,exports){
-module.export = {
+module.exports = {
     name: 'ProductService',
     func: function ($http) {
 
         const searchResults = [];
 
+
         return {
+            getAllItems(){
+
+                return $http.get('https://tiy-28202.herokuapp.com/shop/items').then(function(response){
+                    return response.data;
+                })
+
+            },
+
             addSearchResults(searchString) {
 
                 $http.get('https://tiy-28202.herokuapp.com/shop/search?q=' + searchString).then(function (response) {
-                    console.log('hello');
+                    console.log(response);
                 });
             },
 
             getSearchResults() {
                 return searchResults;
-            }
+            },
         };
     },
 };
+
+
 
 
 },{}]},{},[1]);
