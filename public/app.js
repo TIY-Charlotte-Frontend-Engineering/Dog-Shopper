@@ -35,7 +35,7 @@ app.config(function ($stateProvider) {
     });
     $stateProvider.state({
         name: 'details',
-        url: '/details/:productName',
+        url: '/details/:productId',
         component: 'productDetails',
     });
     $stateProvider.state({
@@ -120,6 +120,12 @@ module.exports = {
 module.exports = {
     name: 'ProductDetailController',
     func: function ($scope, $stateParams, ProductService) { 
+
+        console.log($stateParams.productId);
+
+        $scope.details = function(id){
+            ProductService.getOneItem($stateParams.id);
+        }
     },
 }
 },{}],5:[function(require,module,exports){
@@ -185,7 +191,7 @@ module.exports = {
         $scope.search_string = '';
 
         $scope.search = function(search_string){
-            // console.log('searching');
+            console.log('searching');
             ProductService.addSearchResults($scope.search_string);
             $scope.search_string = '';
         }
@@ -243,6 +249,13 @@ module.exports = {
 
             getSearchResults() {
                 return searchResults;
+            },
+
+            getOneItem(id){
+                    $http.get('https://tiy-28202.herokuapp.com/shop/items/' + id).then(function (response) {
+                    console.log(response);
+
+                });
             },
         };
     },
