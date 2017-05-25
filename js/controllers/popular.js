@@ -1,6 +1,6 @@
 module.exports = {
     name: 'PopularProductsController',
-    func: function ($scope, ProductService) { // may need $stateParams, not sure yet
+    func: function ($scope, $stateParams, ProductService) { // may need $stateParams, not sure yet
         // $scope.searchResults = ProductService.getSearchResults()
 
         ProductService.getAllItems().then(function (results) {
@@ -13,6 +13,7 @@ module.exports = {
                 };
             };
             $scope.popItems = popItems;
-        })
+        });
+
     },
 }

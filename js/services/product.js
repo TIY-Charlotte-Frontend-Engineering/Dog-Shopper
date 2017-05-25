@@ -4,7 +4,6 @@ module.exports = {
 
         const searchResults = [];
 
-
         return {
             getAllItems(){
 
@@ -29,11 +28,19 @@ module.exports = {
             },
 
             getOneItem(id){
+                    const detail = {};
+
                     $http.get('https://tiy-28202.herokuapp.com/shop/items/' + id).then(function (response) {
-                    console.log(response);
+                    
+                    console.log(response.data);
+                    angular.copy(response.data, detail);
 
                 });
+
+                return detail;
+
             },
+
         };
     },
 };
