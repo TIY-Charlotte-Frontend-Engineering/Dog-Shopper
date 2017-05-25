@@ -3,6 +3,7 @@
 <html>
 
 <head>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.js"></script>
     <script src="https://npmcdn.com/angular-ui-router@1.0.0-beta.3/release/angular-ui-router.min.js"></script>
     <script src="app.js"></script>
@@ -11,12 +12,27 @@
 
 <body ng-app="DogShopperApp">
 
+<header>
     <h1>Dog Shopper</h1>
-    <home-page></home-page>
-    <product-results></product-results>
-    <product-details></product-details>
-    <shopping-cart></shopping-cart>
+    <img src="https://media.giphy.com/media/DnEhIkQiyNHgs/giphy.gif">
+</header>
 
+<main class="mainView">
+    <div class="search">
+        <home-page></home-page>
+        <product-results></product-results>
+        <product-details></product-details>
+        <shopping-cart></shopping-cart>
+    </div>
+
+    <div class="popular">
+        <h1>Popular Items</h1>
+        <div class="items">
+            <pop-items></pop-items>
+        </div>
+    </div>
+
+</main>
     <!--<ui-view></ui-view>-->
 
 </body>
