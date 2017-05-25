@@ -56,7 +56,6 @@ body {
                 }
 
                 button {
-                    // @include grid-column(2); 
                     display: inline-block; 
                     margin-top: 0; 
                     height: 30px; 
@@ -90,7 +89,7 @@ body {
                 background-color: white;
 
                 h3 {
-                    font-size: 3em;
+                    font-size: 1.5em;
                 }
                 
                 }
@@ -98,6 +97,8 @@ body {
             
 
         }
+
+
 
         .popular {
             @include grid-column(12); 
@@ -117,9 +118,6 @@ body {
                 border: 1px solid black;  
                 background-color: white;
             
-                h3 {
-                    color: blue; 
-                }
             }
         }
 

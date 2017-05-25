@@ -34,7 +34,7 @@ app.config(function ($stateProvider) {
     });
     $stateProvider.state({
         name: 'details',
-        url: '/details/:productName',
+        url: '/details/:productId',
         component: 'productDetails',
     });
     $stateProvider.state({

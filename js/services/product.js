@@ -27,6 +27,13 @@ module.exports = {
             getSearchResults() {
                 return searchResults;
             },
+
+            getOneItem(id){
+                    $http.get('https://tiy-28202.herokuapp.com/shop/items/' + id).then(function (response) {
+                    console.log(response);
+
+                });
+            },
         };
     },
 };

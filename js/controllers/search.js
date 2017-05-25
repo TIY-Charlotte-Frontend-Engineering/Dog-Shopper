@@ -5,7 +5,7 @@ module.exports = {
         $scope.search_string = '';
 
         $scope.search = function(search_string){
-            // console.log('searching');
+            console.log('searching');
             ProductService.addSearchResults($scope.search_string);
             $scope.search_string = '';
         }

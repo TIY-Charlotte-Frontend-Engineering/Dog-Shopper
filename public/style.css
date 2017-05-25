@@ -1382,7 +1382,7 @@ body {
         body main .results ul .resultItems:last-child:not(:first-child) {
           float: right; }
         body main .results ul .resultItems h3 {
-          font-size: 3em; }
+          font-size: 1.5em; }
   body main .popular {
     width: 100%;
     float: left;
@@ -1415,8 +1415,6 @@ body {
           padding-left: 0.9375rem; } }
       body main .popular .items:last-child:not(:first-child) {
         float: right; }
-      body main .popular .items h3 {
-        color: blue; }
 
 .addcart {
   display: inline-block;
