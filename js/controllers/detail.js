@@ -4,8 +4,7 @@ module.exports = {
 
         console.log($stateParams.productId);
 
-        $scope.details = function(id){
-            ProductService.getOneItem($stateParams.id);
-        }
+        $scope.item = ProductService.getOneItem($stateParams.productId);
+
     },
 }

@@ -1383,6 +1383,28 @@ body {
           float: right; }
         body main .results ul .resultItems h3 {
           font-size: 1.5em; }
+  body main .details {
+    width: 100%;
+    float: left;
+    padding-right: 0.625rem;
+    padding-left: 0.625rem;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 200px; }
+    @media print, screen and (min-width: 40em) {
+      body main .details {
+        padding-right: 0.9375rem;
+        padding-left: 0.9375rem; } }
+    body main .details:last-child:not(:first-child) {
+      float: right; }
+    body main .details img {
+      width: 500px; }
+    body main .details p {
+      font-weight: normal;
+      font-size: 1em; }
+    body main .details .right {
+      padding-left: 30px; }
   body main .popular {
     width: 100%;
     float: left;

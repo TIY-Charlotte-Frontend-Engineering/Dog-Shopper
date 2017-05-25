@@ -1,7 +1,18 @@
 <section class="details">
 
-    <p>Details about {{ items.name }}</p>
+    <div class="left">
+        <img ng-src='{{ item.image }}'>
+    </div>
 
+    <div class="right">
+        <h2>{{ item.name }}</h2>
+        <h3>{{ item.brand }}</p>
+        <p>{{ item.price }}</p>
+        
+        <ul>
+            <li ng-repeat="feature in item.features">{{ feature }}</li>
+        </ul>
+    </div>
 
 </section>
 

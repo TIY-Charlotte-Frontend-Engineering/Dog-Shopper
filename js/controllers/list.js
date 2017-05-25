@@ -11,9 +11,3 @@ module.exports = {
         $scope.searchItems = ProductService.getSearchResults();
     },
 }
-
-// app.controller('ProductListController', function ($scope, ProductService) {
-
-
-
-// });

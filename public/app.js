@@ -123,9 +123,8 @@ module.exports = {
 
         console.log($stateParams.productId);
 
-        $scope.details = function(id){
-            ProductService.getOneItem($stateParams.id);
-        }
+        $scope.item = ProductService.getOneItem($stateParams.productId);
+
     },
 }
 },{}],5:[function(require,module,exports){
@@ -143,16 +142,10 @@ module.exports = {
     },
 }
 
-// app.controller('ProductListController', function ($scope, ProductService) {
-
-
-
-// });
-
 },{}],6:[function(require,module,exports){
 module.exports = {
     name: 'PopularProductsController',
-    func: function ($scope, ProductService) { // may need $stateParams, not sure yet
+    func: function ($scope, $stateParams, ProductService) { // may need $stateParams, not sure yet
         // $scope.searchResults = ProductService.getSearchResults()
 
         ProductService.getAllItems().then(function (results) {
@@ -165,7 +158,8 @@ module.exports = {
                 };
             };
             $scope.popItems = popItems;
-        })
+        });
+
     },
 }
 },{}],7:[function(require,module,exports){
@@ -227,7 +221,6 @@ module.exports = {
 
         const searchResults = [];
 
-
         return {
             getAllItems(){
 
@@ -252,11 +245,19 @@ module.exports = {
             },
 
             getOneItem(id){
+                    const detail = {};
+
                     $http.get('https://tiy-28202.herokuapp.com/shop/items/' + id).then(function (response) {
-                    console.log(response);
+                    
+                    console.log(response.data);
+                    angular.copy(response.data, detail);
 
                 });
+
+                return detail;
+
             },
+
         };
     },
 };

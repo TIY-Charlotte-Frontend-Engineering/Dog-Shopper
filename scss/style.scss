@@ -84,21 +84,43 @@ body {
                 list-style: none;
 
                 .resultItems {
-                @include grid-column(3);
-                border: 1px solid black;  
-                background-color: white;
+                    @include grid-column(3);
+                    border: 1px solid black;  
+                    background-color: white;
 
-                h3 {
-                    font-size: 1.5em;
-                }
-                
-                }
+                        h3 {
+                            font-size: 1.5em;
+                        }
+                    
+                    }
             }
             
 
         }
 
+    
+        .details {
+            @include grid-column(12);
 
+            padding-top: 50px;
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 200px;
+
+            img {
+                width: 500px;
+            }
+
+            p {
+                font-weight: normal;
+                font-size: 1em;
+            }
+
+            .right {
+                padding-left: 30px;
+            }
+
+        }
 
         .popular {
             @include grid-column(12); 
