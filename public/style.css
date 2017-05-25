@@ -1398,6 +1398,8 @@ body {
         padding-left: 0.9375rem; } }
     body main .details:last-child:not(:first-child) {
       float: right; }
+    body main .details img {
+      width: 500px; }
     body main .details p {
       font-weight: normal;
       font-size: 1em; }
