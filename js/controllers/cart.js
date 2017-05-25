@@ -1,14 +1,9 @@
-
 module.exports = {
     name: 'ShoppingCartController',
-    func: function ($scope, ProductService) { // may need $stateParams, not sure yet
+    func: function ($scope, CartService) { 
+
 
     },
 }
 
 
-// app.controller('ShoppingCartController', function ($scope, ProductService) {
-
-
-
-// });
