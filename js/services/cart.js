@@ -1,5 +1,5 @@
 module.exports = {
-    names: 'CartService',
+    name: 'CartService',
     func: function ($http) {
 
         const cartItems = [];

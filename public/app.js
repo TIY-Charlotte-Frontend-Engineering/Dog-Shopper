@@ -8,6 +8,7 @@ const controllers = [
     require('./controllers/popular'),
     require('./controllers/detail'),
     require('./controllers/cart'),
+    require('./controllers/add-cart'),
 ];
 
 for (let i = 0; i < controllers.length; i++) {
@@ -83,42 +84,56 @@ app.component('popItems', {
 
 app.component('addCart', {
     templateUrl: 'templates/add-cart.html',
-    controller: 'ShoppingCartController',
+    controller: 'AddCartController',
     bindings: {
         who: '<',
     }
 })
 
-},{"./controllers/cart":2,"./controllers/detail":3,"./controllers/list":4,"./controllers/popular":5,"./controllers/review":6,"./controllers/search":7,"./services/cart":8,"./services/product":9}],2:[function(require,module,exports){
-
+},{"./controllers/add-cart":2,"./controllers/cart":3,"./controllers/detail":4,"./controllers/list":5,"./controllers/popular":6,"./controllers/review":7,"./controllers/search":8,"./services/cart":9,"./services/product":10}],2:[function(require,module,exports){
 module.exports = {
-    name: 'ShoppingCartController',
-    func: function ($scope, ProductService) { // may need $stateParams, not sure yet
+    name: 'AddCartController',
+    func: function ($scope, CartService) { 
 
             $scope.add = function(item){
                 console.log('item added');
+                CartService.addToCart($scope.item);
             }
 
     },
 }
 
 
-// app.controller('ShoppingCartController', function ($scope, ProductService) {
 
-
-
-// });
 },{}],3:[function(require,module,exports){
+module.exports = {
+    name: 'ShoppingCartController',
+    func: function ($scope, CartService) { 
+
+
+    },
+}
+
+
+
+},{}],4:[function(require,module,exports){
 module.exports = {
     name: 'ProductDetailController',
     func: function ($scope, ProductService) { 
     },
 }
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 module.exports = {
     name: 'ProductListController',
     func: function ($scope, ProductService) { // may need $stateParams, not sure yet
-        
+
+        $scope.search = function(search_string){
+            console.log('searching');
+            ProductService.addSearchResults($scope.search_string);
+            $scope.search_string = '';
+        }
+
+        $scope.searchItems = ProductService.getSearchResults();
     },
 }
 
@@ -128,7 +143,7 @@ module.exports = {
 
 // });
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 module.exports = {
     name: 'PopularProductsController',
     func: function ($scope, ProductService) { // may need $stateParams, not sure yet
@@ -147,7 +162,7 @@ module.exports = {
         })
     },
 }
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 
 module.exports = {
     name: 'ReviewController',
@@ -162,7 +177,7 @@ module.exports = {
 
 
 // });
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 module.exports = {
     name: 'SearchboxController',
     func: function ($scope, ProductService) { // may need $stateParams, not sure yet
@@ -170,10 +185,9 @@ module.exports = {
         $scope.search_string = '';
 
         $scope.search = function(search_string){
-            console.log('searching');
+            // console.log('searching');
             ProductService.addSearchResults($scope.search_string);
             $scope.search_string = '';
-            ProductService.getAllItems();
         }
 
         $scope.results = ProductService.getSearchResults();
@@ -182,9 +196,9 @@ module.exports = {
 }
 
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 module.exports = {
-    names: 'CartService',
+    name: 'CartService',
     func: function ($http) {
 
         const cartItems = [];
@@ -200,7 +214,7 @@ module.exports = {
         };
     },
 };
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 module.exports = {
     name: 'ProductService',
     func: function ($http) {
@@ -221,6 +235,9 @@ module.exports = {
 
                 $http.get('https://tiy-28202.herokuapp.com/shop/search?q=' + searchString).then(function (response) {
                     console.log(response);
+                    for(let i = 0; i < response.data.length; i++){
+                        searchResults.push(response.data[i]);
+                    }
                 });
             },
 

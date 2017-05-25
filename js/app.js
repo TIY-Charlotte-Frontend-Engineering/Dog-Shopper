@@ -7,6 +7,7 @@ const controllers = [
     require('./controllers/popular'),
     require('./controllers/detail'),
     require('./controllers/cart'),
+    require('./controllers/add-cart'),
 ];
 
 for (let i = 0; i < controllers.length; i++) {
@@ -82,7 +83,7 @@ app.component('popItems', {
 
 app.component('addCart', {
     templateUrl: 'templates/add-cart.html',
-    controller: 'ShoppingCartController',
+    controller: 'AddCartController',
     bindings: {
         who: '<',
     }
