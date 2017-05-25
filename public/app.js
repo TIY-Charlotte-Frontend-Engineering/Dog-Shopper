@@ -104,7 +104,15 @@ module.exports = {
 module.exports = {
     name: 'ProductListController',
     func: function ($scope, ProductService) { // may need $stateParams, not sure yet
-        
+
+        $scope.search = function(search_string){
+            console.log('searching');
+            ProductService.addSearchResults($scope.search_string);
+            $scope.search_string = '';
+            ProductService.getAllItems();
+        }
+
+        $scope.searchItems = ProductService.getSearchResults();
     },
 }
 
@@ -156,10 +164,9 @@ module.exports = {
         $scope.search_string = '';
 
         $scope.search = function(search_string){
-            console.log('searching');
+            // console.log('searching');
             ProductService.addSearchResults($scope.search_string);
             $scope.search_string = '';
-            ProductService.getAllItems();
         }
 
         $scope.results = ProductService.getSearchResults();
@@ -189,6 +196,9 @@ module.exports = {
 
                 $http.get('https://tiy-28202.herokuapp.com/shop/search?q=' + searchString).then(function (response) {
                     console.log(response);
+                    for(let i = 0; i < response.data.length; i++){
+                        searchResults.push(response.data[i]);
+                    }
                 });
             },
 
