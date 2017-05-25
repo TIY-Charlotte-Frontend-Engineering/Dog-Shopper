@@ -14,8 +14,10 @@ for (let i = 0; i < controllers.length; i++) {
 }
 
 const services = require('./services/product');
+const cartService = require('./services/cart');
 
 app.factory(services.name, services.func);
+app.factory(cartService.name, cartService.func);
 
 app.config(function ($stateProvider) {
 
@@ -77,3 +79,11 @@ app.component('popItems', {
         who: '<', 
     }
 });
+
+app.component('addCart', {
+    templateUrl: 'templates/add-cart.html',
+    controller: 'ShoppingCartController',
+    bindings: {
+        who: '<',
+    }
+})

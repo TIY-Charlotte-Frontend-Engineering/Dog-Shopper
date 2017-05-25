@@ -1,14 +1,13 @@
-
 module.exports = {
     name: 'ShoppingCartController',
-    func: function ($scope, ProductService) { // may need $stateParams, not sure yet
+    func: function ($scope, CartService) { 
+
+            $scope.add = function(item){
+                console.log('item added');
+                CartService.addToCart($scope.item);
+            }
 
     },
 }
 
 
-// app.controller('ShoppingCartController', function ($scope, ProductService) {
-
-
-
-// });

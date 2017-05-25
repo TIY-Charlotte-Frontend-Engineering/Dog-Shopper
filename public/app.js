@@ -15,8 +15,10 @@ for (let i = 0; i < controllers.length; i++) {
 }
 
 const services = require('./services/product');
+const cartService = require('./services/cart');
 
 app.factory(services.name, services.func);
+app.factory(cartService.name, cartService.func);
 
 app.config(function ($stateProvider) {
 
@@ -79,11 +81,23 @@ app.component('popItems', {
     }
 });
 
-},{"./controllers/cart":2,"./controllers/detail":3,"./controllers/list":4,"./controllers/popular":5,"./controllers/review":6,"./controllers/search":7,"./services/product":8}],2:[function(require,module,exports){
+app.component('addCart', {
+    templateUrl: 'templates/add-cart.html',
+    controller: 'ShoppingCartController',
+    bindings: {
+        who: '<',
+    }
+})
+
+},{"./controllers/cart":2,"./controllers/detail":3,"./controllers/list":4,"./controllers/popular":5,"./controllers/review":6,"./controllers/search":7,"./services/cart":8,"./services/product":9}],2:[function(require,module,exports){
 
 module.exports = {
     name: 'ShoppingCartController',
     func: function ($scope, ProductService) { // may need $stateParams, not sure yet
+
+            $scope.add = function(item){
+                console.log('item added');
+            }
 
     },
 }
@@ -169,6 +183,24 @@ module.exports = {
 
 
 },{}],8:[function(require,module,exports){
+module.exports = {
+    names: 'CartService',
+    func: function ($http) {
+
+        const cartItems = [];
+
+        return {
+            addToCart(item){
+                cartItems.push(item);
+            },
+
+            getCart(){
+                return cartItems;
+            },
+        };
+    },
+};
+},{}],9:[function(require,module,exports){
 module.exports = {
     name: 'ProductService',
     func: function ($http) {
