@@ -2,10 +2,10 @@
 
    <ul>
        <li class="items" ng-repeat="popItem in popItems">
-           <h3>{{ popItem.name }}</h3>
+            <h3><a ui-sref="details({productName:popItem.name})">{{popItem.name}}</a></h3>
            <p>{{ popItem.brand }}</p>
-           <p>{{ popItem.price }}</p>
-           <!--<add-cart item='popItem'></add-cart>-->
+           {{ popItem.price }}
+           <add-cart class="addcart" item='popItem'></add-cart>
        </li>
 
    </ul>
