@@ -127,6 +127,19 @@ body {
 
 }
 
+.addcart {
+        display: inline-block; 
+        height: 30px; 
+        margin-left: 0; 
+        background-color: #EAD637; 
+        border-bottom-right-radius: 6px; 
+        border-top-right-radius: 6px; 
+        width: 100px; 
+        font-size: .8em;
+        position: relative;
+        bottom: 4px;
+}
+
 // .mainView {
 //     @include grid-row(); 
 

@@ -1417,3 +1417,15 @@ body {
         float: right; }
       body main .popular .items h3 {
         color: blue; }
+
+.addcart {
+  display: inline-block;
+  height: 30px;
+  margin-left: 0;
+  background-color: #EAD637;
+  border-bottom-right-radius: 6px;
+  border-top-right-radius: 6px;
+  width: 100px;
+  font-size: .8em;
+  position: relative;
+  bottom: 4px; }

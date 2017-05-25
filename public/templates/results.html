@@ -2,7 +2,8 @@
 
     <ul>
         <li class="resutItems" ng-repeat="something in searchItems">
-            <h3>{{ something.name }}</h3>
+            <h3><a ui-sref="details({productName:something.name})">{{something.name}}</a></h3>
+            <!--<h3><a ui-sref="details"> {{ something.name }}</a></h3>-->
             <p>{{ something.brand }}</p>
             <p>{{ something.price }}</p>
             <add-cart></add-cart>
@@ -10,3 +11,5 @@
     </ul>
 
 </section>
+
+<!--<a ui-sref='details({username: friend.username})'>{{ friend.username }}</a>-->

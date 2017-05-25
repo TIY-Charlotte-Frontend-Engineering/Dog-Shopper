@@ -1,5 +1,5 @@
 module.exports = {
     name: 'ProductDetailController',
-    func: function ($scope, ProductService) { 
+    func: function ($scope, $stateParams, ProductService) { 
     },
 }

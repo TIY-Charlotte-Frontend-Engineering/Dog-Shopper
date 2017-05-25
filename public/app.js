@@ -119,7 +119,7 @@ module.exports = {
 },{}],4:[function(require,module,exports){
 module.exports = {
     name: 'ProductDetailController',
-    func: function ($scope, ProductService) { 
+    func: function ($scope, $stateParams, ProductService) { 
     },
 }
 },{}],5:[function(require,module,exports){
